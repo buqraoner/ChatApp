@@ -5,24 +5,24 @@ import ChatForm from "./ChatForm";
 import ChatList from "./ChatList";
 
 function Container() {
-  const { setMessages } = useChat();
-  useEffect(() => {
-    init();
+    const { setMessages } = useChat();
+    useEffect(() => {
+        init();
 
-    loadInitialMessages((messages) => {
-      setMessages(messages);
-    });
+        loadInitialMessages((messages) => {
+            setMessages(messages);
+        });
 
-    subscribeChat((message) => {
-      setMessages((prevState) => [...prevState, { message }]);
-    });
-  }, []);
-  return (
-    <div className="App">
-      <ChatList />
-      <ChatForm />
-    </div>
-  );
+        subscribeChat((message) => {
+            setMessages((prevState) => [...prevState, { message }]);
+        });
+    }, []);
+    return (
+        <div className="App">
+            <ChatList />
+            <ChatForm />
+        </div>
+    );
 }
 
 export default Container;
